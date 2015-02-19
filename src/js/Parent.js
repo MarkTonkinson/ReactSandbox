@@ -4,7 +4,7 @@ var Parent = React.createClass({
 	getInitialState: function(){
 		return {
 			newTodo: "",
-			todos: ["Eat Chicken", "Play Sports"]
+			todos: []
 		}
 	},
 	updateNewTodo: function(e){
@@ -26,7 +26,7 @@ var Parent = React.createClass({
 		return (
 			<div>
 				<div>This is the parent. </div>
-				<Child name="child div"/>
+				<Child name="child div" place="hello"/>
 				<input type="text" placeholder="What do you need to do?" value={this.state.newTodo} onChange={this.updateNewTodo}/>
 				<button onClick={this.handleAddToDo}>Add To Do</button>
 				<Todo todos={this.state.todos}/>
