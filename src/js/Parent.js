@@ -2,7 +2,7 @@ var Child = require('./Child')
 var Todo = require('./Todo')
 var Parent = React.createClass({
 	getInitialState: function(){
-		console.log("here at beginning")
+		//if the data was being populated this key would need to be set dynamically as to not overwrite current data
 		return {
 			text: '',
 			key: 1,
@@ -10,27 +10,22 @@ var Parent = React.createClass({
 		}
 	},
 	updateNewTodo: function(e){
-		console.log("here1")
 		this.setState({
 			text: e.target.value
 		})
-		
 	},
 	handleAddToDo: function(){
-		console.log('here2')
 		var newArr = this.state.todos;
 		var newTodo = {
 			text: this.state.text,
 			key: this.state.key
 		}
 		newArr.push(newTodo)
-		console.log(newTodo)
 		this.setState({
 			text: '',
 			key: this.state.key + 1,
 			todos: newArr
 		});
-		console.log(this.state.key)
 	},
 	render: function(){
 		return (
