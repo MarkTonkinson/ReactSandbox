@@ -2,32 +2,42 @@ var Child = require('./Child')
 var Todo = require('./Todo')
 var Parent = React.createClass({
 	getInitialState: function(){
+		console.log("here at beginning")
 		return {
-			newTodo: "",
+			text: '',
+			key: 1,
 			todos: []
 		}
 	},
 	updateNewTodo: function(e){
+		console.log("here1")
 		this.setState({
-			newTodo: e.target.value
+			text: e.target.value
 		})
+		
 	},
 	handleAddToDo: function(){
+		console.log('here2')
 		var newArr = this.state.todos;
-		console.log(newArr)
-		newArr.push(this.state.newTodo)
+		var newTodo = {
+			text: this.state.text,
+			key: this.state.key
+		}
+		newArr.push(newTodo)
+		console.log(newTodo)
 		this.setState({
-			newTodo: '',
+			text: '',
+			key: this.state.key + 1,
 			todos: newArr
 		});
-
+		console.log(this.state.key)
 	},
 	render: function(){
 		return (
 			<div>
 				<div>This is the parent. </div>
 				<Child name="child div" place="hello"/>
-				<input type="text" placeholder="What do you need to do?" value={this.state.newTodo} onChange={this.updateNewTodo}/>
+				<input type="text" placeholder="What do you need to do?" value={this.state.text} onChange={this.updateNewTodo}/>
 				<button onClick={this.handleAddToDo}>Add To Do</button>
 				<Todo todos={this.state.todos}/>
 			</div>

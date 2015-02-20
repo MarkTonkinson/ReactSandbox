@@ -14,7 +14,7 @@ var Todo = React.createClass({
 	},
 	render: function(){
 		var todos = this.props.todos.map(function(todo){
-			return <li> {todo} <input type="checkbox" checkbox={this.state.checkbox} onChange={this.handleTodo}/></li>
+			return <li key={todo.key}> {todo.text} <input type="checkbox" checkbox={this.state.checkbox} onChange={this.handleTodo}/></li>
 		}.bind(this));
 		return (
 			<div>
