@@ -18,7 +18,8 @@ var Parent = React.createClass({
 		var newArr = this.state.todos;
 		var newTodo = {
 			text: this.state.text,
-			key: this.state.key
+			key: this.state.key,
+			selected: false
 		}
 		newArr.push(newTodo)
 		this.setState({
