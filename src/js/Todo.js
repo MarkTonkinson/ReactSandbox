@@ -3,6 +3,7 @@ var Todo = React.createClass({
 		//So I tried to avoid giving the child state, but I can't figure out how to refer to the parent state to make the update
 		//This works
 		//Next TODO: Work on animating the removes and adds! :)
+		//also look into the state.key and making it based on the todos arr.length because otherwise the key just keeps going up - but not sure you can if todos is in their
 		return {
 			todos: this.props.todos
 		}
