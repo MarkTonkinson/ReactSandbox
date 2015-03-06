@@ -1,5 +1,6 @@
 var Child = require('./Child')
 var Todo = require('./Todo')
+var QuickNotes = require('./QuickNotes')
 var Parent = React.createClass({
 	getInitialState: function(){
 		//if the data was being populated this key would need to be set dynamically as to not overwrite current data
@@ -36,6 +37,7 @@ var Parent = React.createClass({
 				<input type="text" placeholder="What do you need to do?" value={this.state.text} onChange={this.updateNewTodo}/>
 				<button onClick={this.handleAddToDo}>Add To Do</button>
 				<Todo todos={this.state.todos}/>
+				<QuickNotes/>
 			</div>
 		)
 	}
